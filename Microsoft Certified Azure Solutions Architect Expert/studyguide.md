@@ -1,6 +1,4 @@
-## Last updated 5/13/2019
-
-# Azure Monitor
+## Azure Monitor
 ### Key Capabilities
 * Monitor and visualize metrics
 * Query and analyze log
