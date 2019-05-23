@@ -89,3 +89,40 @@ Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirem
 * Groups can be configured to expire 1-365 days
 
 # Manage Microsoft Azure AD Directory Users
+
+## General
+* User are sourced directly from Azure AD, on-premises AD, or another Azure AD Tenant/Microsoft account/Social account (i.e. Google)
+* default tenant domains are named <domain>.onmicrosoft.com
+* deleted users can be restored for up to 30 days
+* Name and Username are required when creating a new user
+* Usage Location attribute must be set prior to assigning licenses to the user
+
+## Tenant User Settings
+* Control whether users can register application with Azure AD (Users can register apps - def Yes)
+* Control whether non-admins can access the AAD Admin Portal (Restrict access to Azure AD Admin portal for non-admins - def No)
+* Control whether all users, specific users, or no users can associate Work or School accounts with LinkedIn (Allow users to connect work/school to LinkedIn - def Yes)
+* Control whether guest users permission are limited to viewing their own profile information and group member for groups they're members of (Guest users permissions are limited - def Yes)
+* Control whether Admins and Users and Guest Inviter Role can invite other guests (Admins and Users in Guest Inviter Role can invite - def Yes)
+* Control whether members can invite guests to the tenant (members can invite - def Yes)
+* Control whetehr guest users without Azure AD/Microsoft/social (i.e. Google) account can instead authenticate with OTP (Enable Email One-Time Passcode for Guests - def No)
+* Control whether invites can be sent to all domains (Def), all but specific domains, or only a specific set of domains
+* Control whether all users or a selected set of users can register and configure MFA settings and SSPR in the Access Panel (def None)
+
+## Individual User Settings
+* Set the user's first name and or last name
+* set the user's job title, department, and manager
+* Block the user's sign in
+* Set the user's Usage Location
+* Setup contact info (address and such)
+* Configure minors and consent info (GDPR)
+* View user's permissions over Azure resources and Assigned Apps
+* Manager user's membership in Azure AD Groups and Azure AD / Office 365 Roles
+* Manage user's devices
+* Assign licenses directly to the user
+
+## User Authentication Methods
+* Require the user to re-register for MFA
+* Revoke the user's MFA sessions
+* Reset the user's password
+* Setup the phone and alternate phone numbers for MFA
+* Setup the email and alternate email for MFA
