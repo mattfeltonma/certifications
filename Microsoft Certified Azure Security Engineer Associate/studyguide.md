@@ -126,3 +126,5 @@ Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirem
 * Reset the user's password
 * Setup the phone and alternate phone numbers for MFA
 * Setup the email and alternate email for MFA
+
+# Configure Authentication Methods
