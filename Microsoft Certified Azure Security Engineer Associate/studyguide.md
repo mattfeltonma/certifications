@@ -240,10 +240,21 @@ Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirem
 
 # Secure data and applications
 ## Configure and manage Key Vault
+
+### General Key Vault
+* Standard SKUs use keys processed by software and are considered FIPS 140-2 Level 1
+* Premium SKUs use keys processed by hardware (HSM) and are considered FIPS 140-2 Level 2
+* Keys processed in software are encrypted at rest using system key that is stored in HSM
+* Supports Sign hash and Verify hash, Key Encryption / Wrapping, and Encrypt and Decrypt
+* Keys can be backup and restored from Key Vault to another Key Vault within the same region and subscription
+* Not yet valid or expired keys can be used for decrypt, unwrap, and verify to allow for testing and recovery scenarios
+* Integrated with DigiCert and GlobalSign
+
 ### Manage Access To Key Vault
 * Two SKUs standard and premium where premium allows for use of HSM
 * Supports VNet Service Endpoints
 * Vault endpoints end with vault.azure.net
+* Vault items use an endpoint with the following format https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}
 * Access to management plane is controlled via Azure RBAC and allows for creation, deletion, and management of Vaults as a resource
 * Access to data plane is controlled via Access Policies and allows for granularity at the data type (secret, key, certificate)
 * Restrict network access using firewall functionality to allow specific IPs, VNets, and allow Microsoft Services
@@ -252,5 +263,16 @@ Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirem
 * Data plane access groups permissions under vault resource type (secret, certificate, key) and splits operations into Management and Privileged operations
 * Permissions cannot be configured on a per secret/certificate/key like AWS KMS
 
+### Manage Certificates
+* Create certificates directly in Key Vault or import them
+* Supports automatic renewal with selected issuers
+* Certificate and private key can be exported if that option is chosen when certificate is created/imported
+* Key Vault certificate policy must be provided when certificate is generated in Key Vault to provide information such as lifecyle triggeres (email or renewal)
+* Integrated with DigiCert and GlobalSign
+* Certificate contacts can be set tp be notified about lifecycle events
+
+### Configure Key Rotation
+* Key Vault can manage rotation of Storage Account Keys for both ARM and Classic Storage Accounts
+* Key rotation outside of certificates and Storage Accounts can be performed manually, programatically through an API, or using an Azure Automation Script
 
 
