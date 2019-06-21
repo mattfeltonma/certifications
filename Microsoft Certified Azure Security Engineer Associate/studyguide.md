@@ -238,3 +238,19 @@ Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirem
 * Device Writeback
 * Directory extension attribute sync (extend Azure AD schema)
 
+# Secure data and applications
+## Configure and manage Key Vault
+### Manage Access To Key Vault
+* Two SKUs standard and premium where premium allows for use of HSM
+* Supports VNet Service Endpoints
+* Vault endpoints end with vault.azure.net
+* Access to management plane is controlled via Azure RBAC and allows for creation, deletion, and management of Vaults as a resource
+* Access to data plane is controlled via Access Policies and allows for granularity at the data type (secret, key, certificate)
+* Restrict network access using firewall functionality to allow specific IPs, VNets, and allow Microsoft Services
+
+### Manage permissions to secrets, certificates, and keys
+* Data plane access groups permissions under vault resource type (secret, certificate, key) and splits operations into Management and Privileged operations
+* Permissions cannot be configured on a per secret/certificate/key like AWS KMS
+
+
+
